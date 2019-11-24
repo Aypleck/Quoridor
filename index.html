@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quoridor</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+</head>
+<body>
+	<!-- This element is a black mask that hide the back of the page -->
+	<div class="mask"></div>
+	<!-- This modal aprears on page load -->
+	<div class="modal" id="instructions">
+			<h1>Quoridor</h1>
+			<h2>What is Quoridor</h2>
+			<p>Quoridor is a board game invented by Mirko Marchesi and edited by Gigamic.</p>
+			<p>This game won the Mind Game award in 1997, and was elected game of the year in France, USA, Canada and Belgium.</p>
+			<h2>The rules</h2>
+			<p>Quoridor is played on a 9x9 grid, eahc player is represented by a pawn (Here represented by red a blue circles).</p>
+			<p>The players play one after the other.</p>
+			<h3>The goal</h3>
+			<p>The goal is to be the first one to reach one of the nine tiles at the opposite side of the board.</p>
+			<h3>The actions</h3>
+			<p>During your turn, you have two possible actions :</p>
+			<h4>Place a wall</h4>
+			<p>Each players have 10 walls and can place them in the gap between the tiles of the board.</p>
+			<p>A wall is two tiles long and can prevent a player from going from one tile to the other.</p>
+			<p>You can't place a wall that prevents a player from winning completly, a wall can only extend the path to his victory.</p>
+			<h4>Move</h4>
+			<p>You can only move vertically and horizontally. If there is another player adjacent to the current player, and no wall behind this player, the current player can jump above the adjacent one and move 2 tiles.</p>
+			<p>If a wall is blocking the current player from jumping above an adjacent player, he can move diagonally if there are no walls on the side of the adjacent player blocking this move. </p>
+			<h2>The controls</h2>
+			<p>You can switch between placing a wall and moving by clicking on your pawn.</p>
+			<p>The number writter on each player's pawn is the number of walls he have left.</p>
+			<p>The current player is highlighted with a white circle.</p>
+			<p>You can place a wall by clicking where you want to place it, a preview will aprears if you hover above an available space.</p>
+			<p>You can move by clicking on an available tile. All the possible moves will be shown by previewing you pawn on the available tiles.</p>
+			<a class="btn" id="close-instructions">Let's play !</a>
+	</div>
+	<!-- This modal apreas when a player wins -->
+	<div class="modal" id="win-message">
+		<h1>Game over !</h1>
+		<h2><span id="winner-name"></span> won !</h1>
+		<a class="btn" id="close-win-message">Ok</a>
+	</div>
+	<!-- This is the canvas that display the game board -->
+	<canvas id="canvas"></canvas>
+	<footer>
+		<script type="text/javascript" src="assets/js/modal.js"></script>
+		<script type="text/javascript" src="assets/js/controlHandler.js"></script>
+		<script type="text/javascript" src="assets/js/renderer.js"></script>
+		<script type="text/javascript" src="assets/js/game.js"></script>
+		<script type="text/javascript" src="assets/js/main.js"></script>
+	</footer>
+</body>
+</html>
