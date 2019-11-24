@@ -1,5 +1,5 @@
 # Quoridor
-##What is Quoridor
+## What is Quoridor
 Quoridor is a board game invented by Mirko Marchesi and edited by Gigamic.
 This game won the Mind Game award in 1997, and was elected game of the year in France, USA, Canada and Belgium.
 
@@ -21,8 +21,11 @@ You can only move vertically and horizontally. If there is another player adjace
 If a wall is blocking the current player from jumping above an adjacent player, he can move diagonally if there are no walls on the side of the adjacent player blocking this move.
 
 ## The controls
-* You can switch between placing a wall and moving by clicking on your pawn.
-* The number writter on each player's pawn is the number of walls he have left.
-* The current player is highlighted with a white circle.
-* ou can place a wall by clicking where you want to place it, a preview will aprears if you hover above an available space.
-* You can move by clicking on an available tile. All the possible moves will be shown by previewing you pawn on the available tiles.
+### Tactile
+* **Change control mode** : touch your pawn<
+* **Move** : touch the destination tile<
+* **Place a wall** : drag and drop on an available spot (drop on your pawn to cancel)
+### Mouse and keyboard</h3>
+* **Change control mode** : click on your pawn / SPACE for the blue player / Shift for the red player</p>
+* **Move** : click on the destination tile / WASD for the blue player / Arrows for the red player</p>
+* **Place wall** : click an available spot</p>
