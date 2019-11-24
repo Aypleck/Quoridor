@@ -20,11 +20,13 @@ body {
 	top: 50vh;
 	left: 50vw;
 	width: 70vw;
+	max-height: 100vw;
 	background: rgba(255, 255, 255, 1);
 	transform: translate(-50%, -50%);
 	color: #000;
 	border-radius: 7px;
 	padding: 10px;
+	overflow-y: auto;
 }
 
 
