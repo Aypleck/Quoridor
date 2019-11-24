@@ -245,11 +245,6 @@ class Game{
 	1  = wall
 	*/
 	place(orientation,x,y,value){
-		//correcting possible rounding problems 
-		if(x < 0) x = 0;
-		if(x > this.size) x = this.size;
-		if(y < 0) y = 0;
-		if(y > this.size) y = this.size;
 		//If we are placing a new preview wall, we need to remove the last preview wall
 		if(value == -1) {
 			this.clearPreviews();

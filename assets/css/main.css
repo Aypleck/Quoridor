@@ -11,6 +11,18 @@ body {
 	text-align: center;
 	background-color: black;
 }
+/* Board */
+
+canvas {
+    padding: 0;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 
 /* Modal */
 
@@ -20,7 +32,7 @@ body {
 	top: 50vh;
 	left: 50vw;
 	width: 70vw;
-	max-height: 100vw;
+	max-height: 90vh;
 	background: rgba(255, 255, 255, 1);
 	transform: translate(-50%, -50%);
 	color: #000;
@@ -48,6 +60,8 @@ body {
 
 .modal p {
 	font-size: 17px;
+	text-align: justify;
+	margin-bottom: 3px;
 }
 
 /* Mask */

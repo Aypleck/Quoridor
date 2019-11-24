@@ -22,7 +22,7 @@ class Renderer {
         
         //sizes
         this.wall_width = this.height / this.game.size / 10;
-        this.player_margin = 2;
+        this.player_margin = 0.9;
     }
 
     //The function executed when a player win
@@ -32,6 +32,13 @@ class Renderer {
     
     //The main render function
 	render(){
+        //Recompute the sizes, in case the window has been resizes
+        this.height = this.canvas.height;
+        this.width = this.canvas.width;
+		this.case_width = this.width/this.game.size
+        this.case_height = this.height/this.game.size
+        // this.ctx = canvas.getContext('2d')
+        //Render all the elements
         this.clear();
         this.drawGrid();
         this.drawWalls();
@@ -62,7 +69,7 @@ class Renderer {
             var border = (i == this.game.current_player_id);
             var player = this.game.players[i];
 			var color = this.colorToHTML(player.color,1);
-            this.drawPawn(this.game.players[i].x, this.game.players[i].y, color, border, player.walls + " ▎");
+            this.drawPawn(this.game.players[i].x, this.game.players[i].y, color, border, player.walls + "I");
 		}
     }
 
@@ -158,16 +165,16 @@ class Renderer {
 		//Style
 		this.ctx.fillStyle = color;
 		this.ctx.strokeStyle = "white";
-		this.ctx.lineWidth = this.player_margin;
+		this.ctx.lineWidth = this.case_width / 2 * (1-this.player_margin);
 		//Shape
         this.ctx.beginPath()
         //circle parameters
         var x_pos = this.case_width / 2 + this.case_width * x;
         var y_pos = this.case_height / 2 + this.case_width * y;
         if(this.case_width < this.case_height) {
-            var radius = this.case_width / 2 - 5 - this.player_margin
+            var radius = this.case_width / 2 * this.player_margin
         }else {
-            var radius = this.case_height / 2 - 5 - this.player_margin
+            var radius = this.case_height / 2 * this.player_margin
         }
         //Draw circle
 		this.ctx.arc(x_pos, y_pos, radius, 0, 2*Math.PI)
@@ -178,9 +185,9 @@ class Renderer {
         //Text
         if(text !== undefined){
             var font_size = Math.round(this.case_height / 3)
+            this.ctx.font =  font_size+ "px Arial";
             var text_size = this.ctx.measureText(text)
             this.ctx.fillStyle = "white";
-            this.ctx.font =  font_size+ "px Arial";
             this.ctx.fillText(text,x_pos - text_size.width/2, y_pos + font_size/2)
         }
     }
