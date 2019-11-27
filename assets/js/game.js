@@ -7,6 +7,8 @@ class Game{
 
 		this.size = 9;
 
+		this.is_paused = false;
+
 		//Walls
 		this.vertical_walls = []
 		this.horizontal_walls = []
@@ -108,6 +110,7 @@ class Game{
 		for( var i = 0; i < this.players.length; i++){
 			if(this.players[i].targetY == this.players[i].y){
 				this.renderer.render();
+				this.is_paused = true;	//Pause the game until the player press "Ok"
 				this.renderer.winAnimation(this.current_player_id + 1, this.players[this.current_player_id].color);
 				this.reset();
 			} 
@@ -224,6 +227,9 @@ class Game{
 	//Make the durrent player move dx squares in the X axis AND dy squares in the Y axis
 	//ONLY if this move is valid
 	move(dx,dy){
+		if(game.is_paused){
+			return false;
+		}
 		var player = this.players[this.current_player_id];
 		//if this move is in the list of possible moves
 		if(this.possible_moves.findIndex((move) => move.x == dx && move.y == dy) != -1){
@@ -245,6 +251,9 @@ class Game{
 	1  = wall
 	*/
 	place(orientation,x,y,value){
+		if(game.is_paused){
+			return false;
+		}
 		//If we are placing a new preview wall, we need to remove the last preview wall
 		if(value == -1) {
 			this.clearPreviews();
